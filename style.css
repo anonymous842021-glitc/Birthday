@@ -1,0 +1,322 @@
+:root {
+    --primary-color: #1a2a6c;
+    --accent-color: #f1c40f;
+    --text-color: #2c3e50;
+    --bg-color: #f4f7f6;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Khand', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    perspective: 1000px;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-family: 'Khand';
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+section {
+    padding: 120px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero {
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(178, 31, 31, 0.4)), 
+                url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+.hero h1 {
+    font-family: 'Khand';
+    font-size: 4.5rem;
+    line-height: 1.1;
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateZ(0px) rotateX(0deg); }
+    50% { transform: translateZ(50px) rotateX(10deg); }
+}
+
+.message-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    border-bottom: 8px solid var(--primary-color);
+}
+
+.message-card:hover {
+    transform: rotateY(5deg) rotateX(2deg) translateY(-10px);
+}
+
+.timeline-item {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+}
+
+.poem-box {
+    background: #fff;
+    padding: 50px;
+    border-radius: 5px;
+    font-family: 'Khand';
+    font-size: 1.6rem;
+    line-height: 1.8;
+    text-align: center;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; /* Neumorphic effect */
+}
+
+.btn-surprise {
+    background: var(--accent-color);
+    color: #000;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
+    transition: 0.3s;
+}
+
+.btn-surprise:hover {
+    transform: scale(1.1);
+    background: #f39c12;
+}
+
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 300px;
+    background: #eee;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+}
+/* --- Surprise Page Styling --- */
+
+.hidden {
+    display: none;
+}
+
+#surprise-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+    z-index: 2000;
+    overflow-y: auto;
+    padding-top: 50px;
+    animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 3D Award Card Flip */
+.award-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    perspective: 1000px;
+}
+
+.award-card {
+    width: 300px;
+    height: 400px;
+    cursor: pointer;
+}
+
+.award-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.award-card:hover .award-inner {
+    transform: rotateY(180deg);
+}
+
+.award-front, .award-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.award-front {
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    color: #333;
+    border: 10px solid #fff;
+}
+
+.award-back {
+    background: #fff;
+    color: #1a2a6c;
+    transform: rotateY(180deg);
+    border: 5px solid #ffd700;
+}
+
+/* Promises Styling */
+.promises-section {
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.promise-list {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.promise-item {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border-left: 5px solid #f1c40f;
+    font-size: 1.2rem;
+    font-family: 'Khand';
+    transform: translateZ(20px);
+}
+
+/* Gift Box Animation */
+.gift-box {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift-box:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+/* Card Alignment */
+.message-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    text-align: center;   /* Centers text */
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Photo Box Styling */
+.photo-box {
+    width: 250px;         /* Fixed width */
+    height: 250px;        /* Fixed height to make it a square */
+    margin-bottom: 25px;  /* Space between photo and text */
+    overflow: hidden;     /* Clips the image to the border-radius */
+    border-radius: 15px;  /* Rounded corners */
+    border: 5px solid #f1c40f; /* Adds a nice gold frame */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Ensures image fills the square without stretching */
+    display: block;
+}
+
+/* Text Content Styling */
+.message-content h4 {
+    font-family: 'Khand', sans-serif;
+    font-size: 1.8rem;
+    margin-top: 0;
+    color: #1a2a6c;
+}
+
+.message-content p {
+    font-family: 'Poppins', 'Khand', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
