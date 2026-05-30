@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बाबांसाठी कविता ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #0f0c29; background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); color: white; margin: 0; overflow-x: hidden; }
+        
+        .impact-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+
+        /* Impactful Photo Styling */
+        .main-photo-frame {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 40px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 215, 0, 0.3);
+            padding: 10px;
+            animation: pulse 3s infinite ease-in-out;
+            perspective: 1000px;
+        }
+
+        .main-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            transition: transform 0.5s;
+        }
+
+        .main-photo-frame:hover img {
+            transform: rotateY(15deg) scale(1.05);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            70% { transform: scale(1.02); box-shadow: 0 0 40px 20px rgba(255, 215, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+
+        /* Poem Styling */
+        .scrolling-poem {
+            font-family: 'Khand', sans-serif;
+            font-size: 1.8rem;
+            line-height: 2;
+            color: #f1c40f;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.5s ease;
+        }
+
+        .poem-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .verse { margin-bottom: 50px; }
+
+        .signature {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-top: 50px;
+            font-style: italic;
+        }
+
+        .home-link {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 80px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="impact-container">
+        
+        <!-- Impactful Heart Touching Photo -->
+        <div class="main-photo-frame">
+            <img src="b.jpeg" alt="Baba and Me">
+        </div>
+
+        <div class="scrolling-poem" id="poem">
+            <div class="verse">
+                बाबांच्या हाताचा तो मायेचा स्पर्श<br>
+                आजही देतो मनाला धीर आणि हर्ष<br>
+                त्यांच्या सावलीतच जग सुंदर वाटत<br>
+                त्यांच्यामुळेच आयुष्य खंबीर बनतं
+            </div>
+
+            <div class="verse">
+                बाबा म्हणजे न बोलता समजून घेणारे<br>
+                मनातलं दुःख डोळ्यांतून ओळखणारे<br>
+                स्वतः मात्र वेदना लपवून ठेवतात<br>
+                आणि आपल्या चेहऱ्यावर हसू फुलवतात
+            </div>
+
+            <div class="verse">
+                तुमच्या बोटाला धरून चालन मी शिकलो<br>
+                एक मुलगा म्हणून कुठे तरी नकीच मी कमी पडलो<br>
+                दिवसेंदिवस तुमचं वय वाढत चालंय<br>
+                जबाबदारीच ओझ माझ्या खांद्यावर येत चालय.....🫂🫶
+            </div>
+
+            <div class="signature">
+                - तुमचा लाडका मुलगा
+            </div>
+
+            <a href="index.html" class="home-link">सुरवातीला जा</a>
+        </div>
+    </div>
+
+    <script>
+        // Trigger animation on load
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('poem').classList.add('poem-visible');
+            }, 500);
+        };
+    </script>
+</body>
+</html>
